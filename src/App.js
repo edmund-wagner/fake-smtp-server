@@ -36,10 +36,15 @@ const Email = ({email, isOpen, onToggle}) =>
               <strong>Von:&nbsp;</strong>
               <span dangerouslySetInnerHTML={{__html: email.from.html}}/>
             </ListGroupItem>
-            <ListGroupItem>
-              <strong>An:&nbsp;</strong>
-              <span dangerouslySetInnerHTML={{__html: email.to.html}}/>
-            </ListGroupItem>
+            {
+              email.to !== undefined &&
+              (
+                  <ListGroupItem>
+                    <strong>An:&nbsp;</strong>
+                    <span dangerouslySetInnerHTML={{__html: email.to.html}}/>
+                  </ListGroupItem>
+              )
+            }
             {
               email.cc !== undefined &&
               (
